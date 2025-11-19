@@ -18,6 +18,7 @@ class App {
     this.page = new PageComponent(PageItemComponent);
     this.page.attachTo(appRoot);
 
+    // image: https://picsum.photos/600/300
     this.bindElementToDialog<MediaSectionInput>(
       "#new-image", 
       MediaSectionInput, 
