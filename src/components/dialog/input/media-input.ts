@@ -1,6 +1,7 @@
 import { BaseComponent } from '../../common.js';
+import type { MediaData } from '../dialog.js';
 
-export class MediaSectionInput extends BaseComponent<HTMLElement> {
+export class MediaSectionInput extends BaseComponent<HTMLElement> implements MediaData {
   constructor() {
     const html = `<div>
       <div class="form-container">

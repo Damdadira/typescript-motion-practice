@@ -1,6 +1,7 @@
 import { BaseComponent } from '../../common.js';
+import type { TextData } from '../dialog.js';
 
-export class TextSectionInput extends BaseComponent<HTMLElement> {
+export class TextSectionInput extends BaseComponent<HTMLElement> implements TextData {
   constructor() {
     const html = `<div>
       <div class="form-container">

@@ -4,6 +4,15 @@ import type { Composable } from '../page/page.js';
 type OnCloseListener = () => void;
 type OnSubmitListener = () => void;
 
+export interface MediaData {
+  readonly title: string;
+  readonly url: string;
+}
+export interface TextData {
+  title: string;
+  body: string;
+}
+
 export class InputDialog extends BaseComponent<HTMLElement> implements Composable {
   private closeListener?: OnCloseListener;
   private submitListener?: OnSubmitListener;
