@@ -18,26 +18,13 @@ class App {
     this.page = new PageComponent(PageItemComponent);
     this.page.attachTo(appRoot);
 
-    // const image = new ImageComponent("Image Title", "https://picsum.photos/600/300");
-    // this.page.addChild(image);
-    
-    // const video = new VideoComponent("Video Title", "https://www.youtube.com/embed/JVIKowQZEdk?list=RDYyKSZARBcGo");
-    // this.page.addChild(video);
-
-    // const note = new NoteComponent("Note Title", "Note Body");
-    // this.page.addChild(note);
-
-    // const todo = new TodoComponent("Todo Title", "Todo Item");
-    // this.page.addChild(todo);
-
-    // image
     this.bindElementToDialog<MediaSectionInput>(
       "#new-image", 
       MediaSectionInput, 
       (input: MediaSectionInput) => new ImageComponent(input.title, input.url)
     );
 
-    // video
+    // video: https://www.youtube.com/embed/JVIKowQZEdk?list=RDYyKSZARBcGo
     this.bindElementToDialog<MediaSectionInput>(
       "#new-video", 
       MediaSectionInput, 
