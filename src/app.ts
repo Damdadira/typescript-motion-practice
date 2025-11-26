@@ -18,14 +18,14 @@ class App {
     this.page = new PageComponent(PageItemComponent);
     this.page.attachTo(appRoot);
 
-    // image: https://picsum.photos/600/300
+    // image
     this.bindElementToDialog<MediaSectionInput>(
       "#new-image", 
       MediaSectionInput, 
       (input: MediaSectionInput) => new ImageComponent(input.title, input.url)
     );
 
-    // video: https://www.youtube.com/embed/JVIKowQZEdk?list=RDYyKSZARBcGo
+    // video
     this.bindElementToDialog<MediaSectionInput>(
       "#new-video", 
       MediaSectionInput, 
@@ -45,6 +45,16 @@ class App {
       TextSectionInput, 
       (input: TextSectionInput) => new TodoComponent(input.title, input.body)
     );
+
+    // Demo
+    this.page.addChild(new ImageComponent("Image Title", "https://picsum.photos/800/400"));
+    this.page.addChild(new VideoComponent("Video Title", "https://www.youtube.com/embed/JVIKowQZEdk?list=RDYyKSZARBcGo"));
+    this.page.addChild(new NoteComponent("Note Title", "Don't forget to code your dream"));
+    this.page.addChild(new TodoComponent("Todo Title", "TypeScript Course!"));
+    this.page.addChild(new ImageComponent("Image Title", "https://picsum.photos/800/400"));
+    this.page.addChild(new VideoComponent("Video Title", "https://www.youtube.com/embed/YyKSZARBcGo?list=RDYyKSZARBcGo"));
+    this.page.addChild(new NoteComponent("Note Title", "Don't forget to code your dream"));
+    this.page.addChild(new TodoComponent("Todo Title", "TypeScript Course!"));
   }
 
   private bindElementToDialog<T extends (MediaData | TextData) & Component>(
