@@ -1,16 +1,18 @@
-function Log<T extends (...args: any[]) => any>(
-  originalMethod: T,
-  context: ClassMethodDecoratorContext
-) {
-  const methodName = String(context.name);
-  return function (this: any, ...args: any[]): any {
-    console.log(`Calling ${methodName} with arguments:`);
+function Log(
+  _target: object,
+  propertyKey: string,
+  descriptor: PropertyDescriptor
+): PropertyDescriptor {
+  const originalMethod = descriptor.value;
+  descriptor.value = function (...args: unknown[]) {
+    console.log(`Calling ${propertyKey} with arguments:`);
     console.dir(args);
     const result = originalMethod.apply(this, args);
     console.log(`Result:`);
     console.dir(result);
     return result;
   };
+  return descriptor;
 }
 
 class Calculator {
